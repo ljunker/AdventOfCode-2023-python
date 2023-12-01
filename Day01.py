@@ -5,24 +5,13 @@ data = open('input.txt', 'r').read()
 
 def find_calib_value(line):
     digits = [char for char in line if char.isdigit()]
-    if len(digits) >= 2:
-        first = digits[0]
-        last = digits[-1]
-        return int(first + last)
-    if len(digits) == 1:
-        return int(digits[0] + digits[0])
-    return 0
+    return int(digits[0] + digits[-1])
 
 
 @timer
 def part1():
-    total_sum = 0
     lines = data.split('\n')
-    for line in lines:
-        calib_value = find_calib_value(line)
-        if calib_value != 0:
-            total_sum += calib_value
-    print(total_sum)
+    print(sum([find_calib_value(line) for line in lines]))
 
 
 def convert_to_digit(word):
@@ -52,24 +41,13 @@ def find_calib_value2(line):
             for digit in digits_words:
                 if line[i:i + len(digit)] == digit:
                     digits.append(convert_to_digit(digit))
-    if len(digits) >= 2:
-        first = digits[0]
-        last = digits[-1]
-        return int(first + last)
-    if len(digits) == 1:
-        return int(digits[0] + digits[0])
-    return 0
+    return int(digits[0] + digits[-1])
 
 
 @timer
 def part2():
-    total_sum = 0
     lines = data.split('\n')
-    for line in lines:
-        calib_value = find_calib_value2(line)
-        if calib_value != 0:
-            total_sum += calib_value
-    print(total_sum)
+    print(sum([find_calib_value2(line) for line in lines]))
 
 
 part1()
