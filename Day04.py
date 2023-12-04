@@ -30,6 +30,5 @@ def part2(scratch_cards):
     print(count_copies(scratch_cards))
 
 
-cards = get_cards()
-part1(cards)
-part2(cards)
+part1(get_cards())
+part2(get_cards())
