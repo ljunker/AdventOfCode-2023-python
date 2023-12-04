@@ -12,8 +12,8 @@ def count_copies(scratch_cards):
 cards = []
 for line in data:
     card_data = line.split(': ')[1]
-    left_nums = [int(num) for num in card_data.split(' | ')[0].split(' ') if num != '']
-    right_nums = [int(num) for num in card_data.split(' | ')[1].split(' ') if num != '']
+    left_nums = [int(num) for num in card_data.split(' | ')[0].split()]
+    right_nums = [int(num) for num in card_data.split(' | ')[1].split()]
     winning_nums = [num for num in left_nums if num in right_nums]
     cards.append(len(winning_nums))
 
