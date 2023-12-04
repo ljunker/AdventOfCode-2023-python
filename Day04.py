@@ -1,4 +1,4 @@
-data = open('input.txt', 'r')
+data = open('input.txt')
 
 
 def count_copies(scratch_cards):
