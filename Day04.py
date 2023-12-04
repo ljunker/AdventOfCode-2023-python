@@ -10,27 +10,26 @@ def count_copies(scratch_cards):
 
 
 def get_cards():
-    cards = []
+    scratch_cards = []
     for line in open('input.txt'):
         card_data = line.split(': ')[1]
         left_nums = [int(num) for num in card_data.split(' | ')[0].split()]
         right_nums = [int(num) for num in card_data.split(' | ')[1].split()]
         winning_nums = [num for num in left_nums if num in right_nums]
-        cards.append(len(winning_nums))
-    return cards
+        scratch_cards.append(len(winning_nums))
+    return scratch_cards
 
 
 @timer
-def part1():
-    cards = get_cards()
-    print(sum(2 ** (c - 1) for c in cards if c > 0))
+def part1(scratch_cards):
+    print(sum(2 ** (c - 1) for c in scratch_cards if c > 0))
 
 
 @timer
-def part2():
-    cards = get_cards()
-    print(count_copies(cards))
+def part2(scratch_cards):
+    print(count_copies(scratch_cards))
 
 
-part1()
-part2()
+cards = get_cards()
+part1(cards)
+part2(cards)
