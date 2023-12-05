@@ -78,6 +78,7 @@ def part1(i_seeds, i_maps):
 def part2(i_seeds, i_maps):
     next_seeds = []
     i_seeds = [(i_seeds[i], i_seeds[i + 1]) for i in range(0, len(i_seeds), 2)]
+    print(str(sum(num for _, num in i_seeds)) + " seeds")
     for _, ranged_map in i_maps.items():
         next_seeds = []
         for start, length in i_seeds:
