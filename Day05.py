@@ -62,10 +62,6 @@ class RangedMap(object):
         return f"RangedMap({self.sources}, {self.destinations}, {self.lengths})"
 
 
-def parse_seeds(i_line):
-    return [int(num) for num in i_line[len("seeds: "):].split()]
-
-
 @timer
 def part1(i_seeds, i_maps):
     min_loc = float('inf')
@@ -105,6 +101,10 @@ def get_location(seed, maps):
         # print(seed, dest, s, source, map[s])
         s = ranged_map[s]
     return s
+
+
+def parse_seeds(i_line):
+    return [int(num) for num in i_line[len("seeds: "):].split()]
 
 
 maps = {}
