@@ -98,7 +98,6 @@ def parse_range(line):
 def get_location(seed, maps):
     s = seed
     for _, ranged_map in maps.items():
-        # print(seed, dest, s, source, map[s])
         s = ranged_map[s]
     return s
 
