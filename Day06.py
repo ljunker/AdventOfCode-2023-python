@@ -1,3 +1,5 @@
+import numpy as numpy
+
 from Timer import timer
 
 
@@ -44,9 +46,9 @@ def find_max_hold_time(time, distance):
     return max_hold_time
 
 
-def simulate_race(time, distance):
-    min_hold_time = find_min_hold_time(time, distance)
-    max_hold_time = find_max_hold_time(time, distance)
+def simulate_race(race):
+    min_hold_time = find_min_hold_time(race[0], race[1])
+    max_hold_time = find_max_hold_time(race[0], race[1])
 
     return max_hold_time + 1 - min_hold_time
 
@@ -54,10 +56,8 @@ def simulate_race(time, distance):
 @timer
 def part1(lines):
     times, distances = map(parse_line, lines[:2])
-    prod = 1
-    for time, distance in zip(times, distances):
-        prod *= simulate_race(time, distance)
-    print('Part 1:', prod)
+    numpy.prod(list(map(simulate_race, zip(times, distances))))
+    print('Part 1:', numpy.prod(list(map(simulate_race, zip(times, distances)))))
 
 
 @timer
@@ -65,7 +65,7 @@ def part2(lines):
     time = int(lines[0].split(':')[1].replace(' ', ''))
     distance = int(lines[1].split(':')[1].replace(' ', ''))
 
-    print('Part 2:', simulate_race(time, distance))
+    print('Part 2:', simulate_race((time, distance)))
 
 
 def main():
