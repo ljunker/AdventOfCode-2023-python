@@ -56,7 +56,6 @@ def simulate_race(race):
 @timer
 def part1(lines):
     times, distances = map(parse_line, lines[:2])
-    numpy.prod(list(map(simulate_race, zip(times, distances))))
     print('Part 1:', numpy.prod(list(map(simulate_race, zip(times, distances)))))
 
 
