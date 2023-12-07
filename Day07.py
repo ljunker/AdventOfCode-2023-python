@@ -26,19 +26,19 @@ def hand_strength(hand, joker):
         assert '1' not in counter or list(counter.keys()) == ['1'], f'{counter} {hand}'
 
     if sorted(counter.values()) == [5]:
-        return 10, hand
-    elif sorted(counter.values()) == [1, 4]:
-        return 9, hand
-    elif sorted(counter.values()) == [2, 3]:
-        return 8, hand
-    elif sorted(counter.values()) == [1, 1, 3]:
         return 7, hand
-    elif sorted(counter.values()) == [1, 2, 2]:
+    elif sorted(counter.values()) == [1, 4]:
         return 6, hand
-    elif sorted(counter.values()) == [1, 1, 1, 2]:
+    elif sorted(counter.values()) == [2, 3]:
         return 5, hand
-    elif sorted(counter.values()) == [1, 1, 1, 1, 1]:
+    elif sorted(counter.values()) == [1, 1, 3]:
         return 4, hand
+    elif sorted(counter.values()) == [1, 2, 2]:
+        return 3, hand
+    elif sorted(counter.values()) == [1, 1, 1, 2]:
+        return 2, hand
+    elif sorted(counter.values()) == [1, 1, 1, 1, 1]:
+        return 1, hand
     else:
         assert False, f'{counter} {hand} {sorted(counter.values())}'
 
