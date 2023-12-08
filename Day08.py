@@ -1,4 +1,4 @@
-from math import gcd
+from math import lcm
 
 from Timer import timer
 
@@ -33,10 +33,7 @@ def part2(instructions, maps):
     for current in starts:
         count, at1 = solve(instructions, maps, current)
         counts.append(count)
-    lcm = 1
-    for count in counts:
-        lcm = lcm * count // gcd(lcm, count)
-    print(lcm)
+    print(lcm(*counts))
 
 
 def get_input():
