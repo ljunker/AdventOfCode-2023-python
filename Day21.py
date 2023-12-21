@@ -31,8 +31,8 @@ for step in range(1, 1000000):
     if step % rows == goal % rows:
         a.append((step, len(q)))
         print(step, len(q), step // rows)
-        if len(a) == 3:
-            break
+    if len(a) == 3:
+        break
 
 
 # newton polynom interpolation over a
