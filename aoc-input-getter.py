@@ -27,6 +27,7 @@ def main():
     # put input in "input.txt"
     with open("input.txt", "w") as f:
         f.write(s)
+    print(s)
 
 
 if __name__ == '__main__':
